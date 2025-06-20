@@ -2,7 +2,7 @@ FROM python:3.11-slim
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1 \
-    PYTHONPATH=/app \
+    PYTHONPATH=/app/src \
     PORT=8080
 
 # Install system dependencies
@@ -26,4 +26,4 @@ COPY . .
 EXPOSE $PORT
 
 # Run Uvicorn server
-CMD ["uvicorn", "src.app.main:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]
