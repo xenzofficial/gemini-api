@@ -2,6 +2,7 @@ FROM python:3.11-slim
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1 \
+    PYTHONPATH=/app \
     PORT=8080
 
 # Install system dependencies
