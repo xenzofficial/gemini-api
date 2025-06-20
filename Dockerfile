@@ -1,16 +1,31 @@
 FROM python:3.11-slim
 
-# Install Requirements
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install --upgrade pip
-RUN pip install --no-cache-dir -r requirements.txt
+# Set environment variables
+ENV PYTHONUNBUFFERED=1 \
+    PORT=8080
 
-# Copy project files
+# Install system dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends gcc python3-dev && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install Poetry
+RUN pip install --upgrade pip && \
+    pip install poetry
+
+# Set work directory and copy files
+WORKDIR /app
+COPY pyproject.toml poetry.lock ./
+
+# Install project dependencies
+RUN poetry config virtualenvs.create false && \
+    poetry install --no-interaction --no-ansi
+
+# Copy the rest of the application
 COPY . .
 
-# Default Port 
-EXPOSE 6969
+# Expose port (informational only, actual port is controlled by $PORT)
+EXPOSE $PORT
 
 # Run Uvicorn server
-CMD ["uvicorn", "src.app.main:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["uvicorn", "src.app.main:app", "--host", "0.0.0.0", "--port", "${PORT}"]
