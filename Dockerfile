@@ -16,7 +16,6 @@ RUN pip install --upgrade pip && \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 # Set work directory and copy files
-WORKDIR /app
 COPY pyproject.toml poetry.lock ./
 
 # Copy the rest of the application
