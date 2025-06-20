@@ -10,8 +10,8 @@ default_model_gemini = gemini-2.0-flash
 
 # Provide the necessary cookies for the Gemini AI service, or use a browser to log into your Google account
 [Cookies]
-gemini_cookie_1psid = 
-gemini_cookie_1psidts = 
+gemini_cookie_1psid = g.a000xQgMd_LbI3tz_KrkfSBHpH9RreGYGaNokfqfxjJ-0B2oE6wKn-uqgqkqetVULDdi3mDFrgACgYKAa0SARISFQHGX2Mi009I9gJlSMHl74N76O3XhRoVAUF8yKodXHx8XRtbJ_-qAyzjgIk60076
+gemini_cookie_1psidts = AKEyXzXRwMdDagJwJd-vh8EL58ncSV0cJ-nf1IG-9ecTGMuiQWKckO2NAEqaNX_KO04fDD4Zm-LN
 
 # Enable or disable each AI service.
 # Use "true" to enable or "false" to disable.
