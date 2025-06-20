@@ -13,6 +13,8 @@ RUN apt-get update && \
 RUN pip install --upgrade pip && \
     pip install poetry
 
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 # Set work directory and copy files
 WORKDIR /app
 COPY pyproject.toml poetry.lock ./
