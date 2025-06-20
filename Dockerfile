@@ -19,9 +19,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 WORKDIR /app
 COPY pyproject.toml poetry.lock ./
 
-# Install project dependencies
-RUN poetry install --no-interaction --no-ansi
-
 # Copy the rest of the application
 COPY . .
 
