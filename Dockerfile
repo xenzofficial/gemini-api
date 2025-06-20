@@ -25,4 +25,4 @@ COPY . .
 EXPOSE $PORT
 
 # Run Uvicorn server
-CMD ["uvicorn", "src.app.main:app", "--host", "0.0.0.0", "--port", "${PORT}"]
+CMD ["uvicorn", "src.app.main:app", "--host", "0.0.0.0", "--port", "8080"]
